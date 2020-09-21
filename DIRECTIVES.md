@@ -1,17 +1,3 @@
-![GA logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)
-# Project #0: The Game
-
-### Overview
-
-Let's start out with something fun—**a game!**
-
-Everyone will get a chance to **be creative**, and work through some really **tough programming challenges** – since you've already gotten your feet wet with a few small apps, it's up to you to come up with a fun and interesting game to build.
-
-**You will be working individually for this project**, but we'll be guiding you along the process and helping as you go. Show us what you've got!
-
-
----
-
 ### Technical Requirements
 
 Your app must:
@@ -46,17 +32,6 @@ Your app must:
     * Words of Wisdom
     * Code snippets
 
----
-
-### Useful Resources
-
-* **[MDN Javascript Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** _(a great reference for all things  Javascript)_
-* **[jQuery Docs](http://api.jquery.com)** _(if you're using jQuery)_
-* **[Github Pages](https://pages.github.com)** _(for hosting your game)_
-* **[Example Readme Files](https://git.generalassemb.ly/r-sei-12/Project_Planning_Examples)** _(a great reference for planning materials)_
-
----
-
 ### Project Feedback + Evaluation
 
 * __Project Workflow__: Did you complete the user stories and wireframes as specified above? Did you use source control as expected for the phase of the program you’re in (detailed above)?
@@ -71,16 +46,6 @@ Your app must:
 
 * __Total__: Your instructors will give you a total score on your project between:
 
-    Score | Expectations
-    ----- | ------------
-    **0** | _Incomplete._
-    **1** | _Does not meet expectations._
-    **2** | _Meets expectations, good job!_
-    **3** | _Exceeds expectations, great job!_
-
-This will serve as a helpful overall gauge of whether you met the project goals, but __the more important scores are the individual ones__ above, which can help you identify where to focus your efforts for the next project!
-
----
 
 ### Suggested Ways to Get Started
 
