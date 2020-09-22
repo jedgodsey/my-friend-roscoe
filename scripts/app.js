@@ -1,26 +1,25 @@
 let time = 0;
-let dayNight = 0;
+let dayNight = 'day';
 let loneliness = 0;
 let hunger = 0;
 let tiredness = 0;
 let calendar = 1;
+let openClose = 0;
 
-
+setInterval(() => {
+    $('time').text(`One more day with Roscoe makes ${calendar}!`)
+    calendar++;
+}, 30000)
 
 setInterval(() => { 
     time++;
-    dayNight++;
     loneliness++;
     hunger++;
     tiredness++;
-    calendar++;
-    check();
-    $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)
+    $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
+}, 5000);
 
-    $('time').text(`One more day with Roscoe makes ${calendar}!`)
-}, 1000);
-
-let check = () => {
+let lightOut = () => {
     if (calendar % 2 == 0) {
         $('main').css('background-color', 'navy');
     } else {
@@ -28,13 +27,11 @@ let check = () => {
     }
 }
 
-
-
 $('body').on('click', function(event) {
-    console.log('door click');
-    if ($('#door-img').css('src', './resources/door-open.svg')) {
-        $('#door-img').css('src', './resources/door-closed.svg')
-    } else if ($('#door-img').css('src', './resources/door-closed.svg')) {
-        $('#door-img').css('src', './resources/door-open.svg')
+    if (openClose % 2 == 0) {
+        $('#door-img').attr('src', './resources/door-closed.svg');
+    } else {
+        $('#door-img').attr('src', './resources/door-open.svg');
     }
+    openClose++
 })
