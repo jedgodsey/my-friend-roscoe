@@ -1,17 +1,20 @@
-### User Stories
+# READ ME
 
-Your app must:
-* **HAVE ITS OWN REPO, under your github account. NOT A FORK.**
-* **Git 20+ commits** Commit early, commit often. Tell a story with your commits. Each message should give a clear idea what you changed.
-* **Include Wireframes and User Stories in the README** 
-* **Wireframe:** - Basically draw out what your game will look like—very different way it could look. You can use paper or any wireframe tool you find online.
-* **User Stories** - Wording should center around how a user interacts with your game, for example:
-    1.  The user click starts and the level starts
-    2.  When the user hits the ```f key``` a fire ball is catuplulated at a target. 
-* **Render a game in the browser**
-* **Include separate HTML / CSS / JavaScript files**
-* Stick with **KISS (Keep It Simple Stupid)** and **DRY (Don't Repeat Yourself)** principles
-* Use **JavaScript or jQuery** for **DOM manipulation**
-* **Deploy your game online**, where the rest of the world can access it (we will show you how)
-* Use **semantic markup** for HTML and CSS (adhere to best practices)
-* Be reasonably complex
+## HEADLINE
+"MY Friend Roscoe" is a simple 'Tomagotchi' type online game based on the user's relationship with a digital urban raccoon.
+
+## WIRE FRAME
+![wireFrame](Project0-wire-frame.gif)
+
+## User Stories
+- Upon loading, users will be presented with a scene looking out the back door of a house in an urban area.  The door will be closed.
+- A small animal (perhaps a raccoon) will be visible through the door.
+- User will be presented with instructions about how to interact with this animal
+- upon opening the door, the user will be  presented with several relevant statistics denoting the animal's status, specifically its 'hunger level', its 'tiredness rating' and it's 'boredness quotient'.  Actual terms TBD.
+- these statistics should go down over time, and if they reach zero, the animal will die and the game will be over.
+- a fourth statistic will be kept to denote the number of 'days' the user has been interacting with the animal.
+- after some predetermined number of 'days', the animal will move on and the game will be over.
+- the user will be presented with specific options that can improve the animals respective statisctics.  i.e. feed the animal and it will be less hungry.
+- the animal itself will animate depending on its statistics and the users decisions.
+- the game will visually denote the passage of time via a day/night animation.
+- the game will present itself fashionably on both desktop and mobile devices.
