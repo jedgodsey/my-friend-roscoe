@@ -12,7 +12,8 @@ let $raccoon = $('#roscoe');
 setInterval(() => {
     $('time').text(`One more day with Roscoe makes ${calendar}!`)
     calendar++;
-}, 30000)
+    lightOut();
+}, 5000)
 
 setInterval(() => { 
     time++;
@@ -26,8 +27,9 @@ setInterval(() => {
 let lightOut = () => {
     if (calendar % 2 == 0) {
         $('main').css('background-color', 'navy');
+        $('#yard').css('opacity', '.7')
     } else {
-        $('main').css('background-color', 'pink');
+        $('main').css('background-color', 'lightblue');
     }
 }
 
@@ -43,22 +45,21 @@ $('#door-frame').click(function() {
 
 //Mechanics for selecting raccoon image
 
-let gone = () => {
-}
 
 let response = (stressor) => {
     switch (stressor) {
         case loneliness:
             $raccoon.attr('src', './resources/excited.svg');
-            break;
-            case hunger:
-                $raccoon.attr('src', './resources/full.svg');
-                break;
-                case tiredness:
-                    $raccoon.attr('src', './resources/full.svg');
-                }
-            }
-            
+        break;
+        case hunger:
+            $raccoon.attr('src', './resources/full.svg');
+        break;
+        case tiredness:
+            $raccoon.attr('src', './resources/full.svg');
+    }
+}
+
+// Determines raccoon image without player intervention
 let biggestStress = () => {
     if (loneliness > 9 || hunger > 9 || tiredness > 9) {
         ($('figure')).html('');

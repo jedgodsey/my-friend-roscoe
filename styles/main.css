@@ -12,13 +12,14 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    font-family: 'Epilogue', sans-serif;
 }
 
 main {
     position: relative;
     margin: auto auto;
     z-index: -1;
-    background-color: rgba(3, 173, 252, .5);
+    background-color: lightblue;
     width: 1024px;
     height: 640px;
 }
