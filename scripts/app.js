@@ -4,28 +4,33 @@ let dayNight = 'day';
 let loneliness = 0;
 let hunger = 0;
 let tiredness = 0;
-let calendar = 1;
+let days = 1;
 let openClose = 0;
 let $raccoon = $('#roscoe');
+let instructions = 'Open the door to play with Roscoe. Close the door to let him rest. If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.'
 
 //Timing functions
-setInterval(() => {
-    $('time').text(`One more day with Roscoe makes ${calendar}!`)
-    calendar++;
-    lightOut();
-}, 10000)
+const gameStart = () => {
+    alert(instructions);
+    setInterval(() => {
+        $('time').text(`One more day with Roscoe makes ${days}!`)
+        days++;
+        lightOut();
+        calendar();
+    }, 10000)
 
-setInterval(() => { 
-    time++;
-    loneliness++;
-    hunger++;
-    tiredness++;
-    biggestStress();
-    $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
-}, 5000);
+    setInterval(() => { 
+        time++;
+        loneliness++;
+        hunger++;
+        tiredness++;
+        biggestStress();
+        $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
+    }, 5000);
+}
 
 let lightOut = () => {
-    if (calendar % 2 == 0) {
+    if (days % 2 == 0) {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
@@ -35,24 +40,35 @@ let lightOut = () => {
     }
 }
 
+let calendar = () => {
+    if (days > 10) {
+        $('figure').html('');
+    }
+}
+
 //Event listeners for game interaction
 $('#door-frame').click(function() {
     if (openClose % 2 == 0) {
         $('#door-img').attr('src', './resources/door-closed.svg');
         if (dayNight === 'night') {
-            tiredness -= 5;
+            tiredness >= 5 ? tiredness -= 5 : tiredness = 0;
         }
     } else {
         $('#door-img').attr('src', './resources/door-open.svg');
         if (dayNight === 'day') {
-            loneliness -= 5;
+            loneliness >= 5 ? loneliness -= 5 : loneliness = 0;
         }
     }
+    days > 0 ? days-- : null;
     openClose++
 });
 
 $('#trash').click(function() {
-    hunger -= 5;
+    hunger >= 5 ? hunger -= 5 : hunger = 0;
+    days > 0 ? days-- : null;
+})
+$('button').click(function() {
+    alert(instructions);
 })
 
 //Mechanics for selecting raccoon image
@@ -91,9 +107,4 @@ let biggestStress = () => {
         $raccoon.attr('src', stressImages[troubleIndex]);
     }
 }
-
-//Mechanics for adjusting scores
-let interact = (stressor) => {
-    stressor -= 5;
-    response(stressor);
-}
+gameStart();
