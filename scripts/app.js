@@ -4,8 +4,10 @@ let dayNight = 'day';
 let loneliness = 0;
 let hunger = 0;
 let tiredness = 0;
-let days = 1;
+let shifts = 0;
 let openClose = 0;
+let circleLength = 5;
+let circleDepth = 37;
 let $raccoon = $('#roscoe');
 let instructions = `Who's that? It's Roscoe! Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
 
@@ -18,11 +20,10 @@ let gameStart = () => {
 //Timing functions
 const gamePlay = () => {
     setInterval(() => {
-        $('time').text(`One more day with Roscoe makes ${days}!`)
-        days++;
+        shifts++;
         lightOut();
         calendar();
-    }, 10000)
+    }, 2000)
 
     setInterval(() => { 
         time++;
@@ -35,7 +36,7 @@ const gamePlay = () => {
 }
 
 let lightOut = () => {
-    if (days % 2 == 0) {
+    if (shifts % 2 == 0) {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
@@ -46,8 +47,17 @@ let lightOut = () => {
 }
 
 let calendar = () => {
-    if (days > 10) {
+    if (shifts > 20) {
         $('figure').html('');
+    }
+    if (shifts % 14 == 0) {
+        circleLength = 5;
+        circleDepth += 10;
+        $('#circle-img').css('top', circleDepth + '%');
+    }
+    if (shifts % 2 == 0) {
+        circleLength += 11;
+        $('#circle-img').css('left', circleLength + '%');
     }
 }
 
@@ -64,13 +74,13 @@ $('#door-frame').click(function() {
             loneliness >= 5 ? loneliness -= 5 : loneliness = 0;
         }
     }
-    days > 0 ? days-- : null;
+    shifts > 0 ? shifts-- : null;
     openClose++
 });
 
 $('#trash').click(function() {
     hunger >= 5 ? hunger -= 5 : hunger = 0;
-    days > 0 ? days-- : null;
+    shifts > 0 ? shifts-- : null;
 })
 $('button').click(function() {
     alert(instructions);
