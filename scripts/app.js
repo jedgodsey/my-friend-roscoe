@@ -13,7 +13,7 @@ setInterval(() => {
     $('time').text(`One more day with Roscoe makes ${calendar}!`)
     calendar++;
     lightOut();
-}, 5000)
+}, 10000)
 
 setInterval(() => { 
     time++;
@@ -22,7 +22,7 @@ setInterval(() => {
     tiredness++;
     biggestStress();
     $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
-}, 1000);
+}, 5000);
 
 let lightOut = () => {
     if (calendar % 2 == 0) {
@@ -39,8 +39,14 @@ let lightOut = () => {
 $('#door-frame').click(function() {
     if (openClose % 2 == 0) {
         $('#door-img').attr('src', './resources/door-closed.svg');
+        if (dayNight === 'night') {
+            tiredness -= 5;
+        }
     } else {
         $('#door-img').attr('src', './resources/door-open.svg');
+        if (dayNight === 'day') {
+            loneliness -= 5;
+        }
     }
     openClose++
 })
