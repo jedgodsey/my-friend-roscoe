@@ -28,20 +28,22 @@ let lightOut = () => {
     if (calendar % 2 == 0) {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
+        dayNight = 'night';
     } else {
         $('main').css('background-color', 'lightblue');
+        dayNight = 'day';
     }
 }
 
 //Event listeners for game interaction
-// $('#door-frame').click(function() {
-//     if (openClose % 2 == 0) {
-//         $('#door-img').attr('src', './resources/door-closed.svg');
-//     } else {
-//         $('#door-img').attr('src', './resources/door-open.svg');
-//     }
-//     openClose++
-// })
+$('#door-frame').click(function() {
+    if (openClose % 2 == 0) {
+        $('#door-img').attr('src', './resources/door-closed.svg');
+    } else {
+        $('#door-img').attr('src', './resources/door-open.svg');
+    }
+    openClose++
+})
 
 //Mechanics for selecting raccoon image
 
@@ -85,19 +87,3 @@ let interact = (stressor) => {
     stressor -= 5;
     response(stressor);
 }
-
-//////////////////////////////
-$('body').on('click', function(event) {
-    console.log('works');
-})
-
-
-$('main').on('click', function(event) {
-    console.log('functions');
-})
-
-const btn = document.querySelector('#door-frame');
-btn.addEventListener('click', function(evt) {
-  // testing!
-  console.log(evt);  
-});
