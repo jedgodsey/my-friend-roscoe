@@ -49,6 +49,10 @@ $('#door-frame').click(function() {
         }
     }
     openClose++
+});
+
+$('#trash').click(function() {
+    hunger -= 5;
 })
 
 //Mechanics for selecting raccoon image
