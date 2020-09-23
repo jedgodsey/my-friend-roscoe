@@ -7,11 +7,16 @@ let tiredness = 0;
 let days = 1;
 let openClose = 0;
 let $raccoon = $('#roscoe');
-let instructions = 'Open the door to play with Roscoe. Close the door to let him rest. If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.'
+let instructions = `Who's that? It's Roscoe! Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
 
-//Timing functions
-const gameStart = () => {
+//Starting functions
+let gameStart = () => {
+    $('#door-img').attr('src', './resources/door-open.svg');
     alert(instructions);
+    gamePlay();
+}
+//Timing functions
+const gamePlay = () => {
     setInterval(() => {
         $('time').text(`One more day with Roscoe makes ${days}!`)
         days++;
@@ -103,8 +108,10 @@ let biggestStress = () => {
                     troubleIndex = i;
                 }
             }
+            $raccoon.attr('src', stressImages[troubleIndex]);
         }
-        $raccoon.attr('src', stressImages[troubleIndex]);
     }
 }
-gameStart();
+$('#door-frame').one('click', function() {
+    gameStart()
+});
