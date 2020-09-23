@@ -34,14 +34,14 @@ let lightOut = () => {
 }
 
 //Event listeners for game interaction
-$('#door-frame').click(function() {
-    if (openClose % 2 == 0) {
-        $('#door-img').attr('src', './resources/door-closed.svg');
-    } else {
-        $('#door-img').attr('src', './resources/door-open.svg');
-    }
-    openClose++
-})
+// $('#door-frame').click(function() {
+//     if (openClose % 2 == 0) {
+//         $('#door-img').attr('src', './resources/door-closed.svg');
+//     } else {
+//         $('#door-img').attr('src', './resources/door-open.svg');
+//     }
+//     openClose++
+// })
 
 //Mechanics for selecting raccoon image
 
@@ -91,17 +91,13 @@ $('body').on('click', function(event) {
     console.log('works');
 })
 
-$('#door-frame').on('click', function(event) {
+
+$('main').on('click', function(event) {
     console.log('functions');
 })
 
-// $('.squares').on('click','.square', function(event) {
-//     let $boxColor = $(this).css('background-color');
-//     if ($boxColor == 'rgb(0, 0, 255)') {
-//         points++
-//         $(this).remove();
-//     } else if (points > 0) {
-//         points--;
-//     }
-//     $('h1').text(`Scoreboard: ${points}`);
-// })
+const btn = document.querySelector('#door-frame');
+btn.addEventListener('click', function(evt) {
+  // testing!
+  console.log(evt);  
+});
