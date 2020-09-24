@@ -32,7 +32,7 @@ const gamePlay = () => {
         tiredness++;
         biggestStress();
         $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
-    }, 5000);
+    }, 500);
 }
 
 let lightOut = () => {
@@ -103,8 +103,10 @@ let response = (stressor) => {
 
 // Determines raccoon image without player intervention
 let biggestStress = () => {
-    if (loneliness > 9 || hunger > 9 || tiredness > 9) {
+    if (loneliness == 11 || hunger == 11 || tiredness == 11) {
         ($('figure')).html('');
+        let endGame = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
+        location.reload();
     } else {
         const allStressors = [loneliness, hunger, tiredness];
         troubleIndex = 0;
