@@ -10,6 +10,7 @@ let circleLength = 5;
 let circleDepth = 37;
 let $raccoon = $('#roscoe');
 let instructions = `Who's that? It's Roscoe! Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
+const bars = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 
 //Starting functions
 let gameStart = () => {
@@ -40,7 +41,7 @@ let lightOut = () => {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
-        $('#roscoe').css('transform','translateY(-100%)');
+        $('#roscoe').css('transform','translateY(-100%)');        
     } else {
         $('main').css('background-color', 'lightblue');
         dayNight = 'day';
