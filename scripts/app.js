@@ -55,9 +55,6 @@ let lightOut = () => {
     }
 }
 let calendar = () => {
-    if (shifts > 20) {
-        gameEnd();
-    }
     if (shifts % 2 == 0) {
         circleLength += 11;
         circleLength > 71 ? circleLength = 5 : null;
@@ -65,7 +62,12 @@ let calendar = () => {
     }
     if (shifts % 14 == 0) {
         circleDepth += 10;
-        circleDepth < 68 ? $('#circle-img').css('top', circleDepth + '%') : $('#circle-img').attr('src', '')
+        if (circleDepth < 68) {
+            $('#circle-img').css('top', circleDepth + '%'); 
+        } else {
+            $('#circle-img').attr('src', '')
+            gameEnd();
+        }
     }
 }
 
