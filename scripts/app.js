@@ -12,11 +12,17 @@ let $raccoon = $('#roscoe');
 let instructions = `Who's that? It's Roscoe! Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
 const bars = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 
-//Starting functions
+//Starting/ending functions
 let gameStart = () => {
     $('#door-img').attr('src', './resources/door-open.svg');
     alert(instructions);
     gamePlay();
+}
+
+let gameEnd = () => {
+    ($('figure')).html('');
+    let endGame = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
+    endGame ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
 }
 //Timing functions
 const gamePlay = () => {
@@ -41,7 +47,7 @@ let lightOut = () => {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
-        $('#roscoe').css('transform','translateY(-100%)');        
+        $('#roscoe').css('transform','translateY(100%)');        
     } else {
         $('main').css('background-color', 'lightblue');
         dayNight = 'day';
@@ -50,7 +56,7 @@ let lightOut = () => {
 }
 let calendar = () => {
     if (shifts > 20) {
-        $('figure').html('');
+        gameEnd();
     }
     if (shifts % 2 == 0) {
         circleLength += 11;
@@ -76,13 +82,11 @@ $('#door-frame').click(function() {
             loneliness >= 5 ? loneliness -= 5 : loneliness = 0;
         }
     }
-    // shifts > 0 ? shifts-- : null;
     openClose++
 });
 
 $('#trash').click(function() {
     hunger >= 5 ? hunger -= 5 : hunger = 0;
-    // shifts > 0 ? shifts-- : null;
 })
 $('button').click(function() {
     alert(instructions);
@@ -107,9 +111,7 @@ let response = (stressor) => {
 // Determines raccoon image without player intervention
 let biggestStress = () => {
     if (loneliness == 11 || hunger == 11 || tiredness == 11) {
-        ($('figure')).html('');
-        let endGame = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
-        location.reload();
+        gameEnd();
     } else {
         const allStressors = [loneliness, hunger, tiredness];
         troubleIndex = 0;

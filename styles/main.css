@@ -130,3 +130,7 @@ footer {
     width: 20%;
     height: auto;
 }
+
+#roscoe {
+    transition: transform 1s ease-in-out;
+}
