@@ -52,9 +52,9 @@ time {
 figure {
     position: absolute;
     bottom: 20%;
-    left: 15%;
-    width: 20%;
-    height: auto;
+    left: 14%;
+    height: 29%;
+    width: 30%;
     z-index: 1;
     overflow: hidden;
     transition: transform 1s ease-in-out;
@@ -132,5 +132,6 @@ footer {
 }
 
 #roscoe {
+    height: 100%;
     transition: transform 1s ease-in-out;
 }

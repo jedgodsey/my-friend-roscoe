@@ -20,9 +20,9 @@ let gameStart = () => {
 }
 
 let gameEnd = () => {
-    ($('figure')).html('');
-    let endGame = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
-    endGame ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
+    $raccoon.css('transform','translateX(100%)');
+    let replay = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
+    replay ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
 }
 //Timing functions
 const gamePlay = () => {
@@ -39,7 +39,7 @@ const gamePlay = () => {
         tiredness++;
         biggestStress();
         $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
-    }, 5000);
+    }, 500);
 }
 
 let lightOut = () => {
