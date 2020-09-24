@@ -23,7 +23,7 @@ const gamePlay = () => {
         calendar();
         shifts++;
         lightOut();
-    }, 1000)
+    }, 10000)
 
     setInterval(() => { 
         time++;
@@ -32,7 +32,7 @@ const gamePlay = () => {
         tiredness++;
         biggestStress();
         $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
-    }, 500);
+    }, 5000);
 }
 
 let lightOut = () => {
@@ -40,9 +40,11 @@ let lightOut = () => {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
+        $('#roscoe').css('transform','translateY(-100%)');
     } else {
         $('main').css('background-color', 'lightblue');
         dayNight = 'day';
+        $('#roscoe').css('transform','translateY(0%)')
     }
 }
 let calendar = () => {

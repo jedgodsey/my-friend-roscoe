@@ -26,9 +26,18 @@ main {
 
 header {
     position: absolute;
-    left: 10%;
-    top: 5%;
+    right: 5%;
+    top: 4%;
+    height: 8%;
+    width: 25%;
     z-index: 3;
+    background-color: wheat;
+    color: saddlebrown;
+    border: 3px solid saddlebrown;
+    font-size: 250%;
+    text-align: center;
+    font-family: 'Passion One', cursive;
+    cursor: pointer;
 }
 
 time {
@@ -47,6 +56,8 @@ figure {
     width: 20%;
     height: auto;
     z-index: 1;
+    overflow: hidden;
+    transition: transform 1s ease-in-out;
 }
 
 summary {
@@ -89,6 +100,7 @@ footer {
     width: 15%;
     height: auto;
     z-index: 3;
+    cursor: pointer;
 }
 
 #door-frame {
