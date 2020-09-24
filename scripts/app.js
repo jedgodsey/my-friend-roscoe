@@ -9,7 +9,7 @@ let openClose = 0;
 let circleLength = 5;
 let circleDepth = 37;
 let $raccoon = $('#roscoe');
-let instructions = `Who's that? It's Roscoe! Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
+let instructions = `Who's that? It's ROSCOE, the raccoon that lives under your stairs. Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
 const bars = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 
 //Starting/ending functions
@@ -38,7 +38,7 @@ const gamePlay = () => {
         hunger++;
         tiredness++;
         biggestStress();
-        $('summary').text(`LONELINESS: ${loneliness}  HUNGER: ${hunger}  TIREDNESS: ${tiredness}`)    
+        status(loneliness, hunger, tiredness);  
     }, 500);
 }
 
@@ -130,6 +130,19 @@ let biggestStress = () => {
         }
     }
 }
+
+// Chooses image for status representation.
+
+let status = (loneliness, hunger, tiredness) => {
+    let lonely = `<span>LONELINESS <img src="./resources/${bars[loneliness]}.svg" class="bars"></span>`
+    let hungry = `<span>HUNGER <img src="./resources/${bars[hunger]}.svg" class="bars"></span>`
+    let tired = `<span>TIREDNESS <img src="./resources/${bars[tiredness]}.svg" class="bars"></span>`
+    $('summary').html(`${lonely} ${hungry} ${tired}`);
+}
+// Game initiation
 $('#door-frame').one('click', function() {
     gameStart()
 });
+
+
+////////////////////////// Milcah code:
