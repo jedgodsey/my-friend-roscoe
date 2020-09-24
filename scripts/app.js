@@ -4,7 +4,7 @@ let dayNight = 'day';
 let loneliness = 0;
 let hunger = 0;
 let tiredness = 0;
-let shifts = 0;
+let shifts = 1;
 let openClose = 0;
 let circleLength = 5;
 let circleDepth = 37;
@@ -20,10 +20,10 @@ let gameStart = () => {
 //Timing functions
 const gamePlay = () => {
     setInterval(() => {
+        calendar();
         shifts++;
         lightOut();
-        calendar();
-    }, 2000)
+    }, 1000)
 
     setInterval(() => { 
         time++;
@@ -45,19 +45,18 @@ let lightOut = () => {
         dayNight = 'day';
     }
 }
-
 let calendar = () => {
     if (shifts > 20) {
         $('figure').html('');
     }
-    if (shifts % 14 == 0) {
-        circleLength = 5;
-        circleDepth += 10;
-        $('#circle-img').css('top', circleDepth + '%');
-    }
     if (shifts % 2 == 0) {
         circleLength += 11;
+        circleLength > 71 ? circleLength = 5 : null;
         $('#circle-img').css('left', circleLength + '%');
+    }
+    if (shifts % 14 == 0) {
+        circleDepth += 10;
+        circleDepth < 68 ? $('#circle-img').css('top', circleDepth + '%') : $('#circle-img').attr('src', '')
     }
 }
 
@@ -74,13 +73,13 @@ $('#door-frame').click(function() {
             loneliness >= 5 ? loneliness -= 5 : loneliness = 0;
         }
     }
-    shifts > 0 ? shifts-- : null;
+    // shifts > 0 ? shifts-- : null;
     openClose++
 });
 
 $('#trash').click(function() {
     hunger >= 5 ? hunger -= 5 : hunger = 0;
-    shifts > 0 ? shifts-- : null;
+    // shifts > 0 ? shifts-- : null;
 })
 $('button').click(function() {
     alert(instructions);
