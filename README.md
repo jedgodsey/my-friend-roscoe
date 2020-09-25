@@ -4,7 +4,7 @@
 "MY Friend Roscoe" is a simple 'Tomagotchi' type online game based on the user's relationship with a digital urban raccoon.
 
 ## WIRE FRAME
-![wireFrame](Project0-wire-frame.gif)
+![wireFrame](./resources/Project0-wire-frame.gif)
 
 ## User Stories
 - Upon loading, users will be presented with a scene looking out the back door of a house in an urban area.  The door will be closed.
