@@ -19,20 +19,23 @@ let gameStart = () => {
     gamePlay();
 }
 
-let gameEnd = () => {
-    $raccoon.css('transform','translateX(100%)');
-    let replay = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
-    replay ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
+function gameEnd() {
+    $raccoon.css('transform','translateX(125%)');
+    clearInterval(days);
+    clearInterval(moments);
+    $('main').append(`<div id="end-modal"></div>`);
+    // let replay = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
+    // replay ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
 }
 //Timing functions
-const gamePlay = () => {
-    setInterval(() => {
+function gamePlay() {
+    let days = setInterval(() => {
         calendar();
         shifts++;
         lightOut();
     }, 10000)
 
-    setInterval(() => { 
+    let moments = setInterval(() => { 
         time++;
         loneliness++;
         hunger++;
@@ -143,6 +146,3 @@ let status = (loneliness, hunger, tiredness) => {
 $('#door-frame').one('click', function() {
     gameStart()
 });
-
-
-////////////////////////// Milcah code:

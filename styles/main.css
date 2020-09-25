@@ -20,6 +20,8 @@ main {
     margin: auto auto;
     z-index: 0;
     background-color: lightblue;
+    display: flex;
+    align-items: center;
     width: 1024px;
     height: 640px;
 }
@@ -147,4 +149,14 @@ span {
 .bars {
     width: 60%;
     height: 100%;
+}
+
+#end-modal {
+    position: relative;
+    margin: auto;
+    width: 60%;
+    height: 60%;
+    background-color: wheat;
+    border: 10px solid saddlebrown;
+    z-index: 99;
 }
