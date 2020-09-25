@@ -11,6 +11,8 @@ let circleDepth = 37;
 let $raccoon = $('#roscoe');
 let instructions = `Who's that? It's ROSCOE, the raccoon that lives under your stairs. Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
 const bars = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+let days = 0;
+let moments = 0;
 
 //Starting/ending functions
 let gameStart = () => {
@@ -27,6 +29,7 @@ function gameEnd() {
     // let replay = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
     // replay ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
 }
+
 //Timing functions
 function gamePlay() {
     let days = setInterval(() => {
