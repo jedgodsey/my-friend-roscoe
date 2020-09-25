@@ -1,5 +1,4 @@
 //Global Variables
-let time = 0;
 let dayNight = 'day';
 let loneliness = 0;
 let hunger = 0;
@@ -25,21 +24,23 @@ function gameEnd() {
     $raccoon.css('transform','translateX(125%)');
     clearInterval(days);
     clearInterval(moments);
-    $('main').append(`<div id="end-modal"></div>`);
+
+    $('main').append(`<div id="end-modal"><div id="modal-message">It looks like Roscoe has moved on to another house. Would you like to play again?</div><div id="modal-buttons"><span id="play" /><span id="quit" /></div>`);
+    $('#play').html(`<a href="./index.html">PLAY</a>`);
+    $('#quit').html(`<a href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/">QUIT</a>`)
     // let replay = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
     // replay ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
 }
 
 //Timing functions
 function gamePlay() {
-    let days = setInterval(() => {
+    let days = setInterval(function() {
         calendar();
         shifts++;
         lightOut();
     }, 10000)
 
-    let moments = setInterval(() => { 
-        time++;
+    let moments = setInterval(function() {
         loneliness++;
         hunger++;
         tiredness++;
@@ -96,7 +97,7 @@ $('#door-frame').click(function() {
 $('#trash').click(function() {
     hunger >= 5 ? hunger -= 5 : hunger = 0;
 })
-$('button').click(function() {
+$('#instructions').click(function() {
     alert(instructions);
 })
 
