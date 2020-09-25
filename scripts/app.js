@@ -27,20 +27,18 @@ function gameEnd() {
 
     $('main').append(`<div id="end-modal"><div id="modal-message">It looks like Roscoe has moved on to another house. Would you like to play again?</div><div id="modal-buttons"><span id="play" /><span id="quit" /></div>`);
     $('#play').html(`<a href="./index.html">PLAY</a>`);
-    $('#quit').html(`<a href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/">QUIT</a>`)
-    // let replay = confirm(`It looks like Roscoe has moved on to another house. Would you like to play again?`)
-    // replay ? location.reload() : location.href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/";
+    $('#quit').html(`<a href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/">QUIT</a>`);
 }
 
 //Timing functions
 function gamePlay() {
-    let days = setInterval(function() {
+    days = setInterval(function() {
         calendar();
         shifts++;
         lightOut();
     }, 10000)
 
-    let moments = setInterval(function() {
+    moments = setInterval(function() {
         loneliness++;
         hunger++;
         tiredness++;
