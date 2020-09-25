@@ -52,6 +52,7 @@ let lightOut = () => {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
+        console.log(shifts);
         $('#roscoe').css('transform','translateY(100%)');        
     } else {
         $('main').css('background-color', 'lightblue');
@@ -78,7 +79,7 @@ let calendar = () => {
 
 //Event listeners for game interaction
 $('#door-frame').click(function() {
-    if (openClose % 2 == 0) {
+    if (openClose % 2 !== 1) {
         $('#door-img').attr('src', './resources/door-closed.svg');
         if (dayNight === 'night') {
             fatigue >= 5 ? fatigue -= 5 : fatigue = 0;
@@ -91,12 +92,18 @@ $('#door-frame').click(function() {
             response('loved');
         }
     }
+    status(loneliness, hunger, fatigue);
+    biggestStress();
     openClose++
 });
 
 $('#trash').click(function() {
-    hunger >= 3 ? hunger -= 3 : hunger = 0;
-    response('full');
+    if (dayNight === 'day') {
+        hunger >= 1 ? hunger -= 1 : hunger = 0;
+        response('full');
+    }
+    status(loneliness, hunger, fatigue);
+    biggestStress();
 })
 $('#instructions').click(function() {
     alert(instructions);
@@ -109,7 +116,7 @@ let response = (stressor) => {
 
 // Determines raccoon image without player intervention
 let biggestStress = () => {
-    if (loneliness == 11 || hunger == 11 || fatigue == 11) {
+    if (loneliness == 10 || hunger == 10 || fatigue == 10) {
         gameEnd();
     } else {
         const allStressors = [loneliness, hunger, fatigue];

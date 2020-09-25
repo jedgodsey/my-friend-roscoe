@@ -79,7 +79,7 @@ summary {
 footer {
     z-index: 3;
     text-align: center;
-    margin: 10px;
+    margin: 30px;
 }
 
 a {
@@ -94,17 +94,6 @@ a {
   height: auto;
   z-index: -1;
 }
-
-/* #den {
-    z-index: 0;
-    width: 10%;
-    height: 3%;
-    border-radius: 50%;
-    background-color: black;
-    position: absolute;
-    left: 20%;
-    bottom: 16%;
-} */
 
 #trash {
     position: absolute;
