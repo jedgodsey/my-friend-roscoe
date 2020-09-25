@@ -2,7 +2,7 @@
 let dayNight = 'day';
 let loneliness = 0;
 let hunger = 0;
-let tiredness = 0;
+let fatigue = 0;
 let shifts = 1;
 let openClose = 0;
 let circleLength = 5;
@@ -41,10 +41,10 @@ function gamePlay() {
     moments = setInterval(function() {
         loneliness++;
         hunger++;
-        tiredness++;
+        fatigue++;
         biggestStress();
-        status(loneliness, hunger, tiredness);  
-    }, 500);
+        status(loneliness, hunger, fatigue);  
+    }, 5000);
 }
 
 let lightOut = () => {
@@ -81,46 +81,38 @@ $('#door-frame').click(function() {
     if (openClose % 2 == 0) {
         $('#door-img').attr('src', './resources/door-closed.svg');
         if (dayNight === 'night') {
-            tiredness >= 5 ? tiredness -= 5 : tiredness = 0;
+            fatigue >= 5 ? fatigue -= 5 : fatigue = 0;
+            response('perky');
         }
     } else {
         $('#door-img').attr('src', './resources/door-open.svg');
         if (dayNight === 'day') {
             loneliness >= 5 ? loneliness -= 5 : loneliness = 0;
+            response('loved');
         }
     }
     openClose++
 });
 
 $('#trash').click(function() {
-    hunger >= 5 ? hunger -= 5 : hunger = 0;
+    hunger >= 3 ? hunger -= 3 : hunger = 0;
+    response('full');
 })
 $('#instructions').click(function() {
     alert(instructions);
 })
 
 //Mechanics for selecting raccoon image
-
-
 let response = (stressor) => {
-    switch (stressor) {
-        case loneliness:
-            $raccoon.attr('src', './resources/excited.svg');
-        break;
-        case hunger:
-            $raccoon.attr('src', './resources/full.svg');
-        break;
-        case tiredness:
-            $raccoon.attr('src', './resources/full.svg');
-    }
+    $raccoon.attr('src', `./resources/${stressor}.svg`);
 }
 
 // Determines raccoon image without player intervention
 let biggestStress = () => {
-    if (loneliness == 11 || hunger == 11 || tiredness == 11) {
+    if (loneliness == 11 || hunger == 11 || fatigue == 11) {
         gameEnd();
     } else {
-        const allStressors = [loneliness, hunger, tiredness];
+        const allStressors = [loneliness, hunger, fatigue];
         troubleIndex = 0;
         const stressImages = ['./resources/lonely.svg', './resources/hungry.svg', './resources/tired.svg']
         if (Math.max(...allStressors) > 6) {
@@ -137,13 +129,12 @@ let biggestStress = () => {
 }
 
 // Chooses image for status representation.
-
-let status = (loneliness, hunger, tiredness) => {
-    let lonely = `<span>LONELINESS <img src="./resources/${bars[loneliness]}.svg" class="bars"></span>`
-    let hungry = `<span>HUNGER <img src="./resources/${bars[hunger]}.svg" class="bars"></span>`
-    let tired = `<span>TIREDNESS <img src="./resources/${bars[tiredness]}.svg" class="bars"></span>`
-    $('summary').html(`${lonely} ${hungry} ${tired}`);
+let status = (loneliness, hunger, fatigue) => {
+    $('#lonely').attr('src', `./resources/${bars[loneliness]}.svg`);
+    $('#hungry').attr('src', `./resources/${bars[hunger]}.svg`);
+    $('#tired').attr('src', `./resources/${bars[fatigue]}.svg`);
 }
+
 // Game initiation
 $('#door-frame').one('click', function() {
     gameStart()
