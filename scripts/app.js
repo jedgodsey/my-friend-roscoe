@@ -30,7 +30,7 @@ function gameEnd() {
     $('#quit').html(`<a href="https://www.skedaddlewildlife.com/blog/wildlife-removal-dont-feed-raccoons/">QUIT</a>`);
 }
 
-//Timing functions
+//Background timing functions
 function gamePlay() {
     days = setInterval(function() {
         calendar();
@@ -47,12 +47,12 @@ function gamePlay() {
     }, 5000);
 }
 
+//Visible timing functions
 let lightOut = () => {
-    if (shifts % 2 == 0) {
+    if (shifts % 2 !== 1) {
         $('main').css('background-color', 'navy');
         $('#yard').css('opacity', '.7')
         dayNight = 'night';
-        console.log(shifts);
         $('#roscoe').css('transform','translateY(100%)');        
     } else {
         $('main').css('background-color', 'lightblue');
@@ -79,7 +79,7 @@ let calendar = () => {
 
 //Event listeners for game interaction
 $('#door-frame').click(function() {
-    if (openClose % 2 !== 1) {
+    if (openClose % 2 == 1) {
         $('#door-img').attr('src', './resources/door-closed.svg');
         if (dayNight === 'night') {
             fatigue >= 5 ? fatigue -= 5 : fatigue = 0;
@@ -98,7 +98,7 @@ $('#door-frame').click(function() {
 });
 
 $('#trash').click(function() {
-    if (dayNight === 'day') {
+    if (dayNight === 'day' && openClose % 2 == 1) {
         hunger >= 1 ? hunger -= 1 : hunger = 0;
         response('full');
     }
@@ -120,17 +120,16 @@ let biggestStress = () => {
         gameEnd();
     } else {
         const allStressors = [loneliness, hunger, fatigue];
-        troubleIndex = 0;
-        const stressImages = ['./resources/lonely.svg', './resources/hungry.svg', './resources/tired.svg']
+        const stressImages = ['./resources/lonely.svg', './resources/hungry.svg', './resources/tired.svg'];
         if (Math.max(...allStressors) > 6) {
             let pressingStress = 0;
             for (let i = 0; i < allStressors.length; i++) {
                 if (allStressors[i] > pressingStress) {
-                    pressingStresss = allStressors[i];
-                    troubleIndex = i;
+                    console.log(i);
+                    pressingStresss = i;
                 }
             }
-            $raccoon.attr('src', stressImages[troubleIndex]);
+            $raccoon.attr('src', stressImages[pressingStress]);
         }
     }
 }
@@ -146,3 +145,13 @@ let status = (loneliness, hunger, fatigue) => {
 $('#door-frame').one('click', function() {
     gameStart()
 });
+
+
+const createSquares = function (numberOfSquares)  {
+    const $squaresContainer= $('.squares');
+   for(let i = 1; i <= numberOfSquares; i++) {
+    const $square =('<div class = "square" />');
+   // append to parent container
+   $squaresContainer.append($square);
+   }
+  }
