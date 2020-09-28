@@ -3,6 +3,15 @@
 ## HEADLINE
 "MY Friend Roscoe" is a simple 'Tomagotchi' type online game based on the user's relationship with a digital urban raccoon.
 
+## ABOUT THIS PROJECT
+Given the parameters we received for our 'Tomagotchi' project, I tried to conceive of a real world animal that we might interact with that most people consider to be cute.  In terms of wild animals, Americans might commonly interact with skunks, opossums, deer, wild pigs, squirrels and a few other critters that remain wild amongst us.  I chose to focus on a raccoon because I found it to be  both ubiquitous and relatable.  They can be found in almost every inhabited area of the US and are both celebrated and scorned for their intelligence and mischievious activity.  Additionally, Raccoons do accept food and care from humans.  I felt that taking this relateable animal and placing him in the frame of a common setting in which a real person might interact with it would make the game more immersive and therefore more satisfying.
+
+I've used javascript and jQuery to manipulate css and a minimalist html file to produce a simple, but relatively polished game.  This game should be playable with the same experience for anyone in the world with a screen, a keyboard and access to the internet.
+
+I have included both my original wireframe and user stories below for reference.  My final product has some minor variation from the wire frame, as some design concerns during manufacturing produced some ultimately wiser choices in terms of styling.  I met the challenge of all of my user stories, save one.  My game does not predictably present itself on mobile devices.  I put some work into this, but ultimately concluded that I could not be certain I could complete the task by our deadline without potentially harming the game's presentation on a traditional computer.  As playability and appearance on this format was our core objective from the prompt, I chose to focus on this.
+
+
+
 ## WIRE FRAME
 ![wireFrame](./resources/Project0-wire-frame.gif)
 
