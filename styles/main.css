@@ -24,6 +24,7 @@ main {
     align-items: center;
     width: 1024px;
     height: 640px;
+    max-height: 100%;
     transition: background-color 1s ease;
 }
 
@@ -91,7 +92,7 @@ a {
   position: absolute;
   bottom: 0%;
   width: 100%;
-  height: auto;
+  height: 100%;
   z-index: -1;
 }
 
@@ -110,6 +111,10 @@ a {
     width: 100%;
     height: 100%;
     z-index: 2;
+}
+
+#door-image {
+    object-fit: fill;
 }
 
 #calendar-img {
@@ -176,4 +181,20 @@ span {
     align-items: center;
     cursor: pointer;
     padding: 3%;
+}
+
+@media (max-width: 600px) {
+    main {
+        width: 100%;
+        height: 100%;
+    }
+
+    time {
+        width: 50px;
+        height: 50px;
+    }
+
+    header {
+        font-size: 15px;
+    }
 }

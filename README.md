@@ -8,7 +8,7 @@ Given the parameters we received for our 'Tomagotchi' project, I tried to concei
 
 I've used javascript and jQuery to manipulate css and a minimalist html file to produce a simple, but relatively polished game.  This game should be playable with the same experience for anyone in the world with a screen, a keyboard and access to the internet.
 
-I have included both my original wireframe and user stories below for reference.  My final product has some minor variation from the wire frame, as some design concerns during manufacturing produced some ultimately wiser choices in terms of styling.  I met the challenge of all of my user stories, save one.  My game does not predictably present itself on mobile devices.  I put some work into this, but ultimately concluded that I could not be certain I could complete the task by our deadline without potentially harming the game's presentation on a traditional computer.  As playability and appearance on this format was our core objective from the prompt, I chose to focus on this.
+I have included both my original wireframe and user stories below for reference.  My final product has some minor variation from the wire frame, as some design concerns during manufacturing produced some ultimately wiser choices in terms of styling.  I met the challenge of all of my user stories, save one.  My game does not predictably present itself on mobile devices.  I put some work into this, but ultimately not enough.  The game is playable on mobile but it's presentation falls far short of that on desktop.
 
 
 
