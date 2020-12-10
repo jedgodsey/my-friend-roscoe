@@ -8,7 +8,8 @@ let openClose = 0;
 let circleLength = 5;
 let circleDepth = 37;
 let $raccoon = $('#roscoe');
-let instructions = `Who's that? It's ROSCOE, the raccoon that lives under your stairs. Close the door to let him rest. Open the door to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
+let time = prompt(`Who's that? It's ROSCOE, the raccoon that lives under your stairs. Close the door at night to let him rest. Open the door during the day to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.  Please enter the number of seconds in a day for your game.`, 20)
+let instructions = `Who's that? It's ROSCOE, the raccoon that lives under your stairs. Close the door at night to let him rest. Open the door during the day to play with him! If you think he looks hungry, feed him some Garbage! If he gets too tired, hungry or lonely, he may move on to another house.`
 const bars = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
 let days = 0;
 let moments = 0;
@@ -16,7 +17,7 @@ let moments = 0;
 //Starting/ending functions
 let gameStart = () => {
     $('#door-img').attr('src', './resources/door-open.svg');
-    alert(instructions);
+    // alert(instructions);
     gamePlay();
 }
 
@@ -36,7 +37,7 @@ function gamePlay() {
         calendar();
         shifts++;
         lightOut();
-    }, 10000)
+    }, time * 500)
 
     moments = setInterval(function() {
         loneliness++;
@@ -44,7 +45,7 @@ function gamePlay() {
         fatigue++;
         biggestStress();
         status(loneliness, hunger, fatigue);  
-    }, 5000);
+    }, time * 250);
 }
 
 //Visible timing functions

@@ -1,7 +1,7 @@
 # READ ME
 
 ## HEADLINE
-"MY Friend Roscoe" is a simple 'Tomagotchi' type online game based on the user's relationship with a digital urban raccoon.
+"MY Friend Roscoe" is a simple 'Tamagotchi' type online game based on the user's relationship with a digital urban raccoon.
 
 ## ABOUT THIS PROJECT
 Given the parameters we received for our 'Tomagotchi' project, I tried to conceive of a real world animal that we might interact with that most people consider to be cute.  In terms of wild animals, Americans might commonly interact with skunks, opossums, deer, wild pigs, squirrels and a few other critters that remain wild amongst us.  I chose to focus on a raccoon because I found it to be  both ubiquitous and relatable.  They can be found in almost every inhabited area of the US and are both celebrated and scorned for their intelligence and mischievious activity.  Additionally, Raccoons do accept food and care from humans.  I felt that taking this relateable animal and placing him in the frame of a common setting in which a real person might interact with it would make the game more immersive and therefore more satisfying.
